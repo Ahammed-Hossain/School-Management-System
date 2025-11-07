@@ -1,0 +1,122 @@
+/* student Info Css */
+
+.table-container {
+  margin: 30px 60px; /* margin increased */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+.student-table thead {
+  background: #007bff;
+  color: white;
+}
+
+.student-table th,
+.student-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.student-table tbody tr:hover {
+  background: #eef5ff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.student-table td {
+  color: #333;
+  text-align: left;
+}
+
+.student-table th {
+  text-align: left;
+  font-weight: bold;
+}
+
+
+/* Buttons */
+.action-btn {
+  padding: 6px 14px;
+  margin-right: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;            /* light round buttons */
+  transition: 0.2s;
+}
+
+/* Edit */
+.btn-edit {
+  background: #f8b400;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background: #d99800;
+}
+
+/* Fees */
+.btn-fees {
+  background: #187bcd;
+  color: white;
+}
+
+.btn-fees:hover {
+  background: #0f65a5;
+}
+
+
+/* Center the search box */
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* top and bottom spacing */
+}
+
+/* Search box styling */
+.searchBox {
+  display: flex;
+  width: 500px; /* increased length */
+  border: 1px solid #ccd3df;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Input styling */
+.searchInput {
+  flex: 1;
+  padding: 12px 16px; /* a bit more padding */
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.searchInput::placeholder {
+  color: #8a97a8;
+  font-weight: 500;
+}
+
+/* Button styling */
+.searchBtn {
+  padding: 0 25px;
+  border: none;
+  background-color: #187bcd;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.searchBtn:hover {
+  background-color: #0f65a5;
+}
