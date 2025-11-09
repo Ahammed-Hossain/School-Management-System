@@ -1,90 +1,99 @@
-/* student Info Css */
-
+/* Container for cards */
 .table-container {
-  margin: 30px 60px; /* margin increased */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Left aligned cards */
+  gap: 20px; /* Card এর মধ্যে gap */
+  padding: 20px; /* Screen edge থেকে spacing */
 }
 
-.teachers-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: Arial, sans-serif;
+/* Individual card */
+.student-card {
   background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 300px; /* Card width */
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.teachers-table thead {
-  background: #007bff;
-  color: white;
+.student-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
-.teachers-table th,
-.teachers-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #ddd;
+/* Card title info */
+.student-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #007bff;
 }
 
-.teachers-table tbody tr:hover {
-  background: #eef5ff;
-  cursor: pointer;
-  transition: 0.2s;
-}
 
-.teachers-table td {
+.student-card p {
+  display: flex;
+  justify-content: space-between; /* Label left, value right */
+  margin: 4px 0;
+  font-size: 16px;
   color: #333;
+}
+
+.student-card p strong {
+  flex: 0 0 120px; /* Label width */
+  color: #555;
   text-align: left;
 }
 
-.teachers-table th {
-  text-align: left;
-  font-weight: bold;
-}
-
-
-/* Buttons */
-.action-btn {
-  padding: 6px 14px;
-  margin-right: 6px;
-  border: none;
-  cursor: pointer;
+/* Buttons inside card */
+.student-card .action-btn {
+  padding: 8px 12px;
+  margin-top: 10px;
   font-size: 14px;
-  font-weight: 600;
-  border-radius: 4px;            /* light round buttons */
-  transition: 0.2s;
 }
 
-/* Edit */
-.btn-edit {
-  background: #f8b400;
-  color: #fff;
+.student-card .btn-edit {
+  background-color: #f8b400;
 }
 
-.btn-edit:hover {
-  background: #d99800;
+.student-card .btn-edit:hover {
+  background-color: #d99800;
 }
 
-/* Fees */
-.btn-fees {
-  background: #187bcd;
-  color: white;
+.student-card .btn-fees {
+  background-color: #187bcd;
 }
 
-.btn-fees:hover {
-  background: #0f65a5;
+.student-card .btn-fees:hover {
+  background-color: #0f65a5;
 }
 
+/* Responsive */
+@media (max-width: 1000px) {
+  .student-card {
+    width: 45%; /* 2 cards per row */
+  }
+}
 
-/* Center the search box */
+@media (max-width: 700px) {
+  .student-card {
+    width: 100%; /* 1 card per row */
+  }
+}
+
+/* Search box remain centered */
 .searchContainer {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* top and bottom spacing */
+  margin-top: 20px;
 }
 
-/* Search box styling */
 .searchBox {
   display: flex;
-  width: 500px; /* increased length */
+  width: 100%;
+  max-width: 500px;
   border: 1px solid #ccd3df;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -92,10 +101,9 @@
   overflow: hidden;
 }
 
-/* Input styling */
 .searchInput {
   flex: 1;
-  padding: 12px 16px; /* a bit more padding */
+  padding: 12px 16px;
   border: none;
   outline: none;
   font-size: 15px;
@@ -106,7 +114,6 @@
   font-weight: 500;
 }
 
-/* Button styling */
 .searchBtn {
   padding: 0 25px;
   border: none;

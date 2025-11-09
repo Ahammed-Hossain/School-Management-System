@@ -6,10 +6,9 @@ import "./All.css";
 
 export default function TeachersInfo() {
   const [teachers, setTeachers] = useState([]);
-  const [searchId, setSearchId] = useState('')
+  const [searchId, setSearchId] = useState("");
   const navigate = useNavigate();
 
-  // Load teachers from localStorage
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("teachers")) || [];
     setTeachers(data);
@@ -19,9 +18,15 @@ export default function TeachersInfo() {
     navigate("/addteachers", { state: { teacher, index } });
   };
 
-  const filterTeachers = searchId
-  ? teachers.filter((tea) => tea.tID.toString() === searchId)
-  : teachers;
+  const filteredTeachers = searchId
+    ? teachers.filter((tea) => tea.tID.toString() === searchId)
+    : teachers;
+
+  const handleDelete = (index) => {
+    const updatedTeachers = teachers.filter((_, i) => i !== index);
+    setTeachers(updatedTeachers);
+    localStorage.setItem("teachers", JSON.stringify(updatedTeachers));
+  };
 
   return (
     <div>
@@ -31,7 +36,6 @@ export default function TeachersInfo() {
           <li className="linkHome">
             <Link to={"/"}>Home</Link>
           </li>
-
           <li className="linkHome">
             <Link to={"/addstudents"}>Add Student Info</Link>
           </li>
@@ -45,6 +49,7 @@ export default function TeachersInfo() {
             <Link to={"/fees"}>Students Fees</Link>
           </li>
         </ul>
+
         <p className="secTitle">Teachers Info</p>
 
         <div className="searchContainer">
@@ -56,61 +61,46 @@ export default function TeachersInfo() {
               value={searchId}
               onChange={(e) => setSearchId(e.target.value)}
             />
-            <button className="searchBtn" onClick={() => setSearchId("")}>Search</button>
+            <button className="searchBtn" onClick={() => setSearchId("")}>
+              Search
+            </button>
           </div>
         </div>
 
-        <div className="table-container">
-          <table className="teachers-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Subject</th>
-                <th>Address</th>
-                <th>Contact</th>
-                <th>Edit Info</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filterTeachers.map((tea, i) => (
-                <tr key={i}>
-                  <td>{tea.tID}</td>
-                  <td>{tea.tName}</td>
-                  <td>{tea.Subject}</td>
-                  <td>{tea.Address}</td>
-                  <td>{tea.Contact}</td>
-                  <td>
-                    <button
-                      className="action-btn btn-edit"
-                      onClick={() => handleEdit(tea, i)}
-                    >
-                      Edit
-                    </button>
-                    <DeleteLists
-                      indexNumber={i}
-                      teachers={teachers}
-                      setTeachers={setTeachers}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="card-container">
+          {filteredTeachers.map((tea, i) => (
+            <div key={i} className="teacher-card">
+              <h3>{tea.tName}</h3>
+              <p>
+                <strong>ID:</strong> <span>{tea.tID}</span>
+              </p>
+              <p>
+                <strong>Subject:</strong> <span>{tea.Subject}</span>
+              </p>
+              <p>
+                <strong>Address:</strong> <span>{tea.Address}</span>
+              </p>
+              <p>
+                <strong>Contact:</strong> <span>{tea.Contact}</span>
+              </p>
+              <div className="card-buttons">
+                <button
+                  className="action-btn btn-edit"
+                  onClick={() => handleEdit(tea, i)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="action-btn btn-fees"
+                  onClick={() => handleDelete(i)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  );
-}
-
-function DeleteLists({ indexNumber, teachers, setTeachers }) {
-  let DeleteRow = () => {
-    let finalList = teachers.filter((v, i) => i !== indexNumber);
-    setTeachers(finalList);
-  };
-  return (
-    <button className="action-btn btn-fees" onClick={DeleteRow}>
-      Delete
-    </button>
   );
 }

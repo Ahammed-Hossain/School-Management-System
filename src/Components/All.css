@@ -1,156 +1,263 @@
-/* ------------------ Reset & Global ------------------ */
+/* ====== Global Reset ====== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* ====== Body ====== */
 body {
-    font-family: Arial, sans-serif;
+  background-color: #d0dde9;
+  font-family: Arial, sans-serif;
 }
 
-/* ------------------ Headings & Text ------------------ */
+/* ====== Home Page Title & Links ====== */
 .title {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 30px;
 }
 
 p {
-    margin-top: 10px;
-    font-size: 25px;
-    font-weight: 500;
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
 }
 
-/* ------------------ Home Page Links ------------------ */
-.linkHome {
-    font-size: 20px;
-    margin-top: 20px;
+/* ====== Navigation ====== */
+.ul ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
 }
 
 .linkHome a {
-    color: #000000;                    /* মূল লিঙ্কের রঙ */
-    font-size: 20px;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    background-color: rgb(203, 243, 255); /* normal state ব্যাকগ্রাউন্ড */
+  color: #000;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: rgb(147, 215, 255);
 }
 
 .linkHome a:hover {
-    color: #ffffff;
-    background-color: #0099ff;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    cursor: pointer;
+  color: #fff;
+  background-color: #0099ff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
-/* ------------------ Home Page Buttons ------------------ */
+/* ====== Home Page Buttons ====== */
 .bntMain-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .homeBtns {
-    width: 1600px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
+  width: 1600px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
 }
 
 .btn {
-    height: 250px;
-    width: 400px;
-    display: flex;
-    justify-content: center;  /* horizontal center */
-    align-items: center;      /* vertical center */
-    text-align: center;
-    background-color: #3facc7;
-    border: none;
-    border-radius: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0;
+  height: 250px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3facc7;
+  border: none;
+  border-radius: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+  text-decoration: none;
 }
 
 .btn:hover {
-    background-color: #109e9e;
-    transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background-color: #109e9e;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ------------------ Form Styles ------------------ */
+/* ====== Form Section ====== */
 .form-Container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .form-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-list label {
-    text-align: left;
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 500;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .form-list input {
-    margin-top: 5px;
-    padding: 8px 250px 8px 8px;
-    border: 1px solid #646464;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none; /* focus outline remove */
+  margin-top: 5px;
+  padding: 8px 250px 8px 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
 }
 
-/* Optional: focus color same রাখার জন্য */
-.form-list input:focus {
-    border-color: #ccc;
-}
-
-/* Remove spinner buttons for number inputs */
+/* Remove number input arrows */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type=number] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
+/* Focus এ border change হবে না */
+input:focus {
+  border-color: #ccc;
+}
+
+/* ====== Form Button ====== */
 .form-list button {
-    margin-top: 40px;
-    width: 150px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    background-color: #0099ff;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: antiquewhite;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-/* ------------------ Navigation Links ------------------ */
+.form-list button:hover {
+  background-color: #ffd580;
+}
+
+/* ====== Section Title ====== */
+.secTitle {
+  margin-top: 20px;
+}
+
+/* ====== Responsive Design ====== */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .homeBtns {
+    width: 90%;
+    gap: 20px;
+  }
+
+  .btn {
+    width: 45%;
+    height: 100px;
+    font-size: 24px;
+  }
+
+  .form-list input {
+    padding: 8px 150px 8px 8px;
+  }
+
+  .linkHome a {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: rgb(147, 215, 255);
+}
+
+
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 810px) {
+    .title {
+        font-size: 25px;
+    }
+
+  .homeBtns {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+    height: 150px;
+    font-size: 20px;
+  }
+
+  .form-list input {
+     padding: 8px 100px 8px 8px;
+  }
+
+  .form-list button {
+    width: 120px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+    .linkHome a {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: rgb(147, 215, 255);
+}
+}
+
+/* Small Phones (max-width: 480px) */
+@media (max-width: 580px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .btn {
+    width: 70%;
+    height: 70px;
+    font-size: 16px;
+  }
+
+  .form-list input {
+    padding: 8px 90px 8px 8px;
+  }
+
+  .form-list label {
+    font-size: 16px;
+  }
+    .linkHome a {
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background-color: rgb(147, 215, 255);
+}
 .ul ul {
     display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 30px;
+    flex-direction: column;
 }
-
-/* Section Title */
-.secTitle {
-    margin-top: 20px;
 }

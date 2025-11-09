@@ -28,9 +28,9 @@ export default function StudentsInfo() {
     localStorage.setItem("students", JSON.stringify(updatedStudents));
   };
 
-  let handleClick=(student)=> {
-    navigate("/fees", { state: {student}});
-  }
+  let handleClick = (student) => {
+    navigate("/fees", { state: { student } });
+  };
 
   return (
     <div>
@@ -72,51 +72,56 @@ export default function StudentsInfo() {
         </div>
 
         <div className="table-container">
-          <table className="student-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Father's Name</th>
-                <th>Mother's Name</th>
-                <th>Roll No</th>
-                <th>Address</th>
-                <th>Contact</th>
-                <th>Edit Info</th>
-                <th>Student Fees</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredStudents.map((stu, i) => (
-                <tr key={i}>
-                  <td>{stu.sId}</td>
-                  <td>{stu.sName}</td>
-                  <td>{stu.sFatherName}</td>
-                  <td>{stu.sMotherName}</td>
-                  <td>{stu.sRollNo}</td>
-                  <td>{stu.sAddress}</td>
-                  <td>{stu.sContact}</td>
-                  <td>
-                    <button
-                      className="action-btn btn-edit"
-                      onClick={() => handleEdit(stu, i)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="action-btn btn-fees"
-                      onClick={() => handleDelete(i)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                  <td>
-                    <button className="action-btn btn-edit" onClick={() => handleClick(stu)}>Pay</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          {filteredStudents.map((stu, i) => (
+            <div key={i} className="student-card">
+              <h3>{stu.sName}</h3>
+              <p>
+                <strong>ID:</strong> <span>{stu.sId}</span>
+              </p>
+              <p>
+                <strong>Father:</strong> <span>{stu.sFatherName}</span>
+              </p>
+              <p>
+                <strong>Mother:</strong> <span>{stu.sMotherName}</span>
+              </p>
+              <p>
+                <strong>Roll No:</strong> <span>{stu.sRollNo}</span>
+              </p>
+              <p>
+                <strong>Address:</strong> <span>{stu.sAddress}</span>
+              </p>
+              <p>
+                <strong>Contact:</strong> <span>{stu.sContact}</span>
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "10px",
+                  flexWrap: "wrap",
+                  marginTop: "10px",
+                }}
+              >
+                <button
+                  className="action-btn btn-edit"
+                  onClick={() => handleEdit(stu, i)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="action-btn btn-fees"
+                  onClick={() => handleDelete(i)}
+                >
+                  Delete
+                </button>
+                <button
+                  className="action-btn btn-edit"
+                  onClick={() => handleClick(stu)}
+                >
+                  Pay
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

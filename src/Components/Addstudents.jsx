@@ -80,24 +80,26 @@ export default function AddStudents() {
   return (
     <div>
       <Header />
-      <div className="ul">
-        <ul>
-          <li className="linkHome">
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li className="linkHome">
-            <Link to={"/addteachers"}>Add Teachers Info</Link>
-          </li>
-          <li className="linkHome">
-            <Link to={"/studentsInfo"}>Students Info</Link>
-          </li>
-          <li className="linkHome">
-            <Link to={"/teachersInfo"}>Teachers Info</Link>
-          </li>
-          <li className="linkHome">
-            <Link to={"/fees"}>Students Fees</Link>
-          </li>
-        </ul>
+      <div className="linkContainer">
+        <div className="ul">
+          <ul>
+            <li className="linkHome">
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li className="linkHome">
+              <Link to={"/addteachers"}>Add Teachers Info</Link>
+            </li>
+            <li className="linkHome">
+              <Link to={"/studentsInfo"}>Students Info</Link>
+            </li>
+            <li className="linkHome">
+              <Link to={"/teachersInfo"}>Teachers Info</Link>
+            </li>
+            <li className="linkHome">
+              <Link to={"/fees"}>Students Fees</Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <p className="secTitle">Add Students Info</p>
