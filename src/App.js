@@ -13,11 +13,11 @@ function App() {
 
   const allrouters = createBrowserRouter([
     { path: '/', element: <Home /> },
-    { path: 'addstudents', element: <AddStudents /> },
-    { path: 'studentsInfo', element: <StudentsInfo /> },
-    { path: 'addteachers', element: <AddTeachers /> },
-    { path: 'teachersInfo', element: <TeachersInfo /> },
-    { path: 'fees', element: <Fees /> }
+    { path: '/addstudents', element: <AddStudents /> },
+    { path: '/studentsInfo', element: <StudentsInfo /> },
+    { path: '/addteachers', element: <AddTeachers /> },
+    { path: '/teachersInfo', element: <TeachersInfo /> },
+    { path: '/fees', element: <Fees /> }
   ]);
 
 
